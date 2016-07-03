@@ -63,12 +63,14 @@ span[data-tooltip="true"]:hover:after {
   width: 100%
 }
 .green-box {
-
   margin: 0 auto;
   z-index: 0;
   height: 100px;
   width: 100px;
-  background: green;
+  /*background: green;*/
+  /*background: rgba(0%, 100%, 0%, 1);*/
+  /*background: rgba(0, 255, 0, 1);*/
+  background: rgb(0, 255, 0);
 }
 
 .clear-fix {
@@ -76,4 +78,8 @@ span[data-tooltip="true"]:hover:after {
   content: '';
   clear: both;
   width: 100%;
+}
+
+p {
+  text-shadow: 0 0 1px currentColor;
 }
