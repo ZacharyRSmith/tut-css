@@ -1,3 +1,13 @@
-body {
-  background-color: blue;
+h1 {
+  position: relative;
+}
+h1:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-bottom-color: red;
+  left: 1em;
+  bottom: -1em;
 }
