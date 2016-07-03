@@ -1,3 +1,7 @@
+body {
+  height: 2000px;
+}
+
 h1 {
   position: relative;
 }
@@ -10,4 +14,52 @@ h1:after {
   border-bottom-color: red;
   left: 1em;
   bottom: -1em;
+}
+
+span {
+  position: relative;
+}
+span[data-tooltip="true"]:hover:before {
+  content: attr(data-name);
+  position: absolute;
+  bottom: -1.5em;
+  left: 0em;
+  background-color: yellow;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+span[data-tooltip="true"]:hover:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: -0.5em;
+  left: 0em;
+  border: 15px solid transparent;
+  border-bottom-color: yellow;
+}
+
+.blue-box-container {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.4);
+  width: 200px;
+  height: 200px;
+  top: 150px;
+}
+
+.blue-box {
+  position: absolute;
+  top: -150px;
+  height: 100px;
+  width: 100px;
+  margin: 10px 0;
+  background: blue;
+}
+
+.green-box {
+  position: relative;
+  z-index: -1;
+  height: 100px;
+  width: 100px;
+  background: green;
 }
