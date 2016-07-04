@@ -19,24 +19,36 @@ h1:after {
 span {
   position: relative;
 }
-span[data-tooltip="true"]:hover:before {
+span[data-tooltip="true"]:before {
   content: attr(data-name);
   position: absolute;
+  opacity: 0;
   bottom: -1.5em;
   left: 0em;
   background-color: yellow;
   border-radius: 10px;
   padding: 0 10px;
+
+  transition: 1s 50ms;
 }
-span[data-tooltip="true"]:hover:after {
+span[data-tooltip="true"]:after {
   content: '';
   position: absolute;
+  opacity: 0;
   width: 0;
   height: 0;
   bottom: -0.5em;
   left: 0em;
   border: 15px solid transparent;
   border-bottom-color: yellow;
+
+  transition: 1s 50ms;
+}
+span[data-tooltip="true"]:hover:before {
+  opacity: 1;
+}
+span[data-tooltip="true"]:hover:after {
+  opacity: 1;
 }
 
 .blue-box-container {
@@ -65,12 +77,10 @@ span[data-tooltip="true"]:hover:after {
 .green-box {
   margin: 0 auto;
   z-index: 0;
-  height: 100px;
-  width: 100px;
-  /*background: green;*/
-  /*background: rgba(0%, 100%, 0%, 1);*/
-  /*background: rgba(0, 255, 0, 1);*/
-  background: rgb(0, 255, 0);
+  height: 0;
+  width: 0;
+  border: 50px solid transparent;
+  border-color: blue blue black black;
 }
 
 .clear-fix {
@@ -82,4 +92,44 @@ span[data-tooltip="true"]:hover:after {
 
 p {
   text-shadow: 0 0 1px currentColor;
+}
+
+.gradient-box {
+  height: 50px;
+  position: relative;
+  transition: 1s 50ms;
+  background-color: blue;
+  /*background-image: radial-gradient(blue, indigo);*/
+}
+.gradient-box:hover {
+  background-color: indigo;
+  transform: scale(1.4);
+  /*background-image: radial-gradient(indigo, blue);*/
+}
+.gradient-box:after {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 50px;
+  width: 50px;
+  background-image: linear-gradient(red, orange);
+  transform: translateX(100px) translateY(100px);
+}
+
+nav ul li {
+  list-style-type: none;
+}
+nav > ul > li {
+  position: relative;
+  display: inline-block;
+}
+.about-list > ul {
+  position: absolute;
+  transform: scale(1, 0);
+  transform-origin: top center;
+  transition: transform 0.2s linear 50ms;
+  top: 100%;
+}
+.about-list:hover > ul {
+  transform: scale(1, 1);
 }
